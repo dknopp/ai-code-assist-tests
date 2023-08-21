@@ -1,2 +1,4 @@
-# openai-tests
-Tests of openai chatgpt
+AI Coding Assistants
+================================================================
+
+This repo documents evaluations of AI coding assistants.
