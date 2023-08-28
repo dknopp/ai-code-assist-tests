@@ -2,8 +2,14 @@
 An Evaluation of Diffblue Cover
 ================================================
 
-Testing the diffblue cover cli
+* An initial test of the diffblue cover cli
+* Testing coverage of more complicated methods
+* Notable features and gaps
+* Overall impressions
 
+
+An initial test of the diffblue cover cli
+------------------------------------------------
 ```cmd
 C:\Users\djkno\projects\openai-tests\unit-tests-and-code-assistants\spring-boot-demo>dcover create com.example.demo.
 INFO  Diffblue Cover 2023.08.01-4f16663-licensed
@@ -188,3 +194,58 @@ class DemoWebMvcControllerDiffblueTest {
   }
 }
 ```
+
+Testing coverage of more complicated methods
+------------------------------------------------
+
+The following complicated method was used to see if diffblue cover could generate a unit test that covered more than
+the simple cases.
+```java
+    public int doSomethingWeirdAndMakeRandomWebRequestsDependingOnInputThenReturnAnInt(int input) {
+        if(input == 1) {
+            if(Math.random() * 100 > 50) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else if(input % 3 == 1) {
+            return doSomethingWeirdAndMakeRandomWebRequestsDependingOnInputThenReturnAnInt(1);
+        }
+        if(input % 3 == 2) {
+            try {
+                return ((HttpURLConnection) new URL("https://www.google.com").openConnection()).getResponseCode();
+            } catch(Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return 0;
+    }
+```
+
+The test generated without efforts being made through configuration covered only the simple case.
+```java
+  /**
+  * Method under test: {@link DemoService2#doSomethingWeirdAndMakeRandomWebRequestsDependingOnInputThenReturnAnInt(int)}
+  */
+  @Test
+  void testDoSomethingWeirdAndMakeRandomWebRequestsDependingOnInputThenReturnAnInt() {
+    // Arrange, Act and Assert
+    assertEquals(0, demoService2.doSomethingWeirdAndMakeRandomWebRequestsDependingOnInputThenReturnAnInt(-1));
+  }
+```
+
+Notable features and gaps
+------------------------------------------------
+
+ * Diffblue cover is reporatbly able to generate tests using base classes: 
+   https://docs.diffblue.com/knowledge-base/cli/custom-test-setup/
+
+ * It could not generate tests of JVM capatable code, see the Sample.kt Kotlin class in the spring-boot-demo code base.
+
+Overall impressions
+------------------------------------------------
+
+Diffblue cover seems useful for rapidly generating simple case unit tests for a legacy, untested, code base. It's
+limited in it's ability to cover complex cases or to generate tests that cover more than happy path scenarios. It also
+does not cover JVM capatable languages other than Java.

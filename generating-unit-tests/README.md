@@ -20,13 +20,17 @@ Tool/Approach:
 
     [Python DIY Assistant](pydiy-assistant.md)
 
- 4. Challenging Unit Test Scenarios
+ 4. Evaluation of Github Copilot
 
-    [Challenging Unit Test Scenarios](challenging-unit-test-scenarios.md)
+    [An Evaluation of Github Copilot](github-copilot.md)
 
  5. Evaluation of Tabnine
 
     [An Evaluation of Tabnine](tabnine.md)
+    
+ 6. Challenging Unit Test Scenarios
+
+    [Challenging Unit Test Scenarios](challenging-unit-test-scenarios.md)
 
 Contents:
  * spring-boot-demo: a spring boot starter to use as an experimental test bed for seeing how AI tools generate unit 

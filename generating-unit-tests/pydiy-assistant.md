@@ -26,3 +26,5 @@ class DemoRestControllerTest {
 }
 
 ```
+
+This fully working script demonstrates how simple it is to create a CLI coding assistant for generating unit tests.
