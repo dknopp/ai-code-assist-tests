@@ -8,9 +8,9 @@ Mostly.ai
 ==================================
 
 A simple confidence test of Mostly.ai's synthetic data generation. Here we upload a CC0 dataset from Kaggle on
-earthquakes and have the app generate some data for us. We then assert that the data seems correct by taking random
-samples over 10 iterations and doing some basic checks, we also assert that a random selection of rows in the 
-synthetic data do not exist in the original data set. See the icluded python script for details.
+earthquakes and have the app generate some data for us. We then assert that the data seems correct by taking a random
+sample and doing some basic checks, we also assert that a random selection of rows in the synthetic data do not exist 
+in the original data set. See the included python script for details.
 
 Kaggle data reference: https://www.kaggle.com/datasets/alessandrolobello/the-ultimate-earthquake-dataset-from-1990-2023
 
@@ -18,65 +18,19 @@ Example run
 
 ```bash
 
-djkno@LAPTOP-340A59VN MINGW64 ~/projects/ai-synthetic-data
 $ python test_data.py
-Executing test iteration 0
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
+Selecting random sample from Eartquakes-1990-2023-synthetic.csv of 1000 rows
 Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '1491495813631.*7 km WSW of Cobb, California.*reviewed.*0.*169.*earthquake.*3.31363736.* California.*-122.79959772.*38.79048761.*1.22049479.*2017-02-16 20:26:18.420' Eartquakes-1990-2023.csv
+Selecting 10 random rows from sample and asserting that it isn't in the original data source
+Executing: grep -n '1380454490148.*_RARE_.*reviewed.*0.*50.*earthquake.*1.81531673.* Alaska.*-138.37935893.*58.70603081.*19.15651954.*2013-09-01 23:24:44.082' Eartquakes-1990-2023.csv
+Executing: grep -n '1653309219429.*3 km WNW of Walker, California.*reviewed.*0.*56.*earthquake.*1.91419166.* California.*-119.48060344.*38.47083244.*5.65072347.*2022-08-22 17:24:15.433' Eartquakes-1990-2023.csv
+Executing: grep -n '1433223911162.*11 km NNE of New Pine Creek, Oregon.*reviewed.*0.*2.*earthquake.*0.40434871.* Oregon.*-120.06041295.*42.77575956.*4.77629474.*2015-05-24 23:37:44.758' Eartquakes-1990-2023.csv
+Executing: grep -n '1186299280472.*24 km NW of San Simeon, California.*reviewed.*0.*72.*earthquake.*2.17360229.* California.*-121.18967537.*35.76906528.*4.41126049.*2007-08-11 20:36:23.490' Eartquakes-1990-2023.csv
+Executing: grep -n '633565111469.*_RARE_.*reviewed.*0.*30.*earthquake.*1.40350613.*California.*-117.15069994.*35.88275654.*5.13619692.*1990-03-05 13:16:52.620' Eartquakes-1990-2023.csv
+Executing: grep -n '1214093100314.*Gulf of Alaska.*reviewed.*0.*141.*earthquake.*3.0793328.*Gulf of Alaska.*-148.64365141.*57.0109145.*10.08785172.*2008-05-26 21:39:23.830' Eartquakes-1990-2023.csv
+Executing: grep -n '1345711223382.*_RARE_.*reviewed.*0.*137.*earthquake.*2.95344421.* Alaska.*-173.85952542.*50.95739669.*13.64237398.*2012-10-29 01:22:39.606' Eartquakes-1990-2023.csv
+Executing: grep -n '1414275200742.*4 km WNW of Cobb, California.*automatic.*0.*14.*earthquake.*0.94977739.* California.*-122.77236171.*38.84387943.*2.44056081.*2014-12-12 08:42:09.610' Eartquakes-1990-2023.csv
+Executing: grep -n '737744821423.*_RARE_.*reviewed.*0.*35.*earthquake.*1.45438692.* California.*-115.42798759.*33.43453439.*5.89557798.*1993-05-10 22:49:15.110' Eartquakes-1990-2023.csv
+Executing: grep -n '1542625638923.*12km ENE of Borrego Springs, CA.*reviewed.*0.*24.*earthquake.*1.25232497.*California.*-116.22738166.*33.36404963.*9.82444695.*2018-09-23 15:12:58.150' Eartquakes-1990-2023.csv
 
-Executing test iteration 1
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '1541519255850.*_RARE_.*reviewed.*0.*12.*earthquake.*0.90422642.* Nevada.*-119.43500798.*40.59472854.*3.79756665.*2018-10-20 05:09:58.063' Eartquakes-1990-2023.csv
-
-Executing test iteration 2
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '1471168425852.*30 km NW of Mentasta Lake, Alaska.*reviewed.*0.*75.*earthquake.*2.24462086.* Alaska.*-143.9970565.*63.00368314.*10.22634513.*2016-10-19 14:10:14.663' Eartquakes-1990-2023.csv
-
-Executing test iteration 3
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '749683130879.*6km SW of Santa Clarita, California.*reviewed.*0.*15.*earthquake.*0.98960284.* California.*-118.51162403.*34.47173924.*2.13986464.*1994-01-20 10:06:22.850' Eartquakes-1990-2023.csv
-
-Executing test iteration 4
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '900826516741.*_RARE_.*reviewed.*0.*44.*earthquake.*1.71076039.* France.*7.80465544.*43.12592426.*5.08465953.*1998-07-22 13:19:37.270' Eartquakes-1990-2023.csv
-
-Executing test iteration 5
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '974249728569.*5 km SW of Cobb, California.*reviewed.*0.*13.*earthquake.*0.91659729.* California.*-122.7753954.*38.79792915.*1.05247512.*2000-10-21 12:48:03.730' Eartquakes-1990-2023.csv
-
-Executing test iteration 6
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '1595277943300.*64 km SSW of Sand Point, Alaska.*reviewed.*0.*8.*earthquake.*0.71351459.* Alaska.*-162.80200448.*55.51235219.*24.19593983.*2020-08-26 05:18:33.708' Eartquakes-1990-2023.csv
-
-Executing test iteration 7
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '1297946862372.*23 km SE of Denali National Park, Alaska.*reviewed.*0.*30.*earthquake.*1.40663346.* Alaska.*-151.56760063.*63.42829208.*3.71218421.*2011-02-16 19:44:20.417' Eartquakes-1990-2023.csv
-
-Executing test iteration 8
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '1411257242003.*8 km WSW of Cobb, California.*reviewed.*0.*57.*earthquake.*1.90164749.* California.*-122.81118179.*38.79809956.*2.52530308.*2014-10-30 00:30:51.990' Eartquakes-1990-2023.csv
-
-Executing test iteration 9
-Selecting random sample from Eartquakes-1990-2023-synthetic.csv
-Asserting data is withing acceptable limits
-Selecting random row from sample and asserting that it isn't in the original data source
-Executing: grep -n '848448252448.*28km ENE of Little Lake, California.*reviewed.*0.*39.*earthquake.*1.58811455.* California.*-117.54673093.*36.04129826.*0.67542609.*1996-11-21 07:49:03.260' Eartquakes-1990-2023.csv
 ```
